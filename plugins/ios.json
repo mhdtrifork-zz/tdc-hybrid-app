@@ -1,0 +1,18 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "dk.tdc.selvbetjening.yousee.nightly"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "dk.tdc.selvbetjening.yousee.nightly"
+        }
+    },
+    "dependent_plugins": {}
+}
