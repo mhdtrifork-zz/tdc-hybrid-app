@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import CSSTransitionGroup from 'react-addons-css-transition-group';
 
-import Hello from './components/Hello';
+import LoginPage from './components/LoginPage';
 
 const App = React.createClass({
   getInitialState() {
@@ -27,7 +27,7 @@ const App = React.createClass({
             transitionEnterTimeout={ 300 } transitionLeaveTimeout={ 300 }>
             {/* Remove the below component and its children */}
             {/* and replace with your own */}
-            <Hello />
+            <LoginPage />
         </CSSTransitionGroup>
       </div>
     );

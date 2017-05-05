@@ -1,4 +1,4 @@
-.hello {
+.login-page {
   position: absolute;
   top: 20px;
   right: 0;
@@ -7,29 +7,37 @@
   background: #001d14;
 }
 
-.hello .button-say-hello {
+.login-page .yousee-header {
   position: absolute;
   display: block;
-  font-size: 120%;
+  font-size: 120;
+  text-align: center;
+  color: #ffffff;
+  right: 50%;
+}
+
+.button-green {
+  position: absolute;
+  display: block;
+  font-size: 12;
   bottom: 100px;
   right: 50%;
   -webkit-transform: translate(50%,0);
   transform: translate(50%,0);
   -webkit-appearance: none;
-  border-radius: 2px;
-  background: #efefef;
-  color: #666666;
+  background: #3cb84d;
+  color: #000000;
   padding: 10px;
-  width: 300px;
+  height: 30px;
+  line-height: 30px;
+  width: 236px;
   text-align: center;
   text-decoration: none;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
 }
 
-.hello .button-say-hello.Tappable-active {
-  background: #e6e6e6;
-  color: #333333;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+.button-green.Tappable-active {
+  background: #3cb84d66;
+  color: #00000066;
   -webkit-transform: translate(50%, 1px);
   transform: translate(50%, 1px);
 }
