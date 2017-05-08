@@ -1,10 +1,7 @@
 import React from 'react';
 import Tappable from 'react-tappable';
-import Spinner from './Spinner';
 
 import '../css/loginPage.css'
-
-import Message from './Message';
 
 const LoginPage = React.createClass({
 
@@ -12,7 +9,6 @@ const LoginPage = React.createClass({
 
   getInitialState() {
     return {
-      loading: false,
       username: '',
       password: '',
     };
@@ -21,12 +17,11 @@ const LoginPage = React.createClass({
   parseResponse(responseJson) {
     const token = responseJson.token
     const selfServiceStack = responseJson.selfServiceStack
-    console.log(token)
-    console.log(selfServiceStack)
+    this.props.navigateTo('Broadband')
   },
 
   login() {
-    this.setState({loading: true})
+    this.props.startSpinner(true)
      fetch('http://odinapps.master.test.internal.tdc.dk/apps/authenticate', {
       method: 'POST',
       headers: {
@@ -41,10 +36,9 @@ const LoginPage = React.createClass({
       .then((response) => response.json())
       .then((responseJson) => {
         this.parseResponse(responseJson)
-        this.setState({loading: false})
       })
       .catch((error) => {
-        this.setState({loading: false})
+        this.props.startSpinner(false)
         console.error(error)
       });
   },
@@ -58,13 +52,6 @@ const LoginPage = React.createClass({
   },
   
   render() {
-    var spinnerOverlay = <div/>
-        if (this.state.loading) {
-          spinnerOverlay = 
-            <div className="login-overlay">
-              <Spinner className="spinner"/>
-            </div>
-      }
       return (
       <div className="login-page">
         <div className="container">
@@ -76,9 +63,6 @@ const LoginPage = React.createClass({
             onTap={ () => this.login()}
             >Log ind</Tappable>
         </div>
-        <div>
-        {spinnerOverlay}
-      </div>
       </div>
     );
   },
