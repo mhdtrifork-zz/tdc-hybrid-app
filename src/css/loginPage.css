@@ -52,8 +52,24 @@
 }
 
 .button-green.Tappable-active {
-  background: #3cb84d66;
-  color: #00000066;
+  background: #3cb84d;
+  color: #000000;
   -webkit-transform: translate(1px, 1px);
   transform: translate(1px, 1px);
+  opacity: 0.4;
+}
+
+.login-overlay {
+  position: absolute;
+  top: 0px;
+  left: 0pc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  martin: 20px;
+  height: 100vh;
+  width: 100vw;
+  background: #000000;
+  opacity: 0.4;
 }

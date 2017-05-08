@@ -1,5 +1,6 @@
 import React from 'react';
 import Tappable from 'react-tappable';
+import Spinner from './Spinner';
 
 import '../css/loginPage.css'
 
@@ -11,15 +12,41 @@ const LoginPage = React.createClass({
 
   getInitialState() {
     return {
+      loading: false,
       username: '',
       password: '',
     };
   },
+  
+  parseResponse(responseJson) {
+    const token = responseJson.token
+    const selfServiceStack = responseJson.selfServiceStack
+    console.log(token)
+    console.log(selfServiceStack)
+  },
 
   login() {
-    // CSSTransitionGroup will fade this in
-    console.log(this.state.username)
-    console.log(this.state.password)
+    this.setState({loading: true})
+     fetch('http://odinapps.master.test.internal.tdc.dk/apps/authenticate', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }, 
+      body: JSON.stringify({
+        userName: this.state.username,
+        password: this.state.password,
+      })
+     })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.parseResponse(responseJson)
+        this.setState({loading: false})
+      })
+      .catch((error) => {
+        this.setState({loading: false})
+        console.error(error)
+      });
   },
   
   handleUsernameChange(event) {
@@ -29,9 +56,16 @@ const LoginPage = React.createClass({
   handlePasswordChange(event) {
     this.setState({password: event.target.value});
   },
-
+  
   render() {
-    return (
+    var spinnerOverlay = <div/>
+        if (this.state.loading) {
+          spinnerOverlay = 
+            <div className="login-overlay">
+              <Spinner className="spinner"/>
+            </div>
+      }
+      return (
       <div className="login-page">
         <div className="container">
           <h1 className="yousee-header">youSee</h1>
@@ -42,6 +76,9 @@ const LoginPage = React.createClass({
             onTap={ () => this.login()}
             >Log ind</Tappable>
         </div>
+        <div>
+        {spinnerOverlay}
+      </div>
       </div>
     );
   },
