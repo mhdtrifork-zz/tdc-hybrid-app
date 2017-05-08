@@ -1,43 +1,59 @@
 .login-page {
-  position: absolute;
-  top: 20px;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  martin: 20px;
+  height: 100vh;
+  width: 100vw;
   background: #001d14;
 }
 
-.login-page .yousee-header {
-  position: absolute;
+.login-page .container {
+  flex: flex-grow;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .yousee-header {
   display: block;
   font-size: 120;
   text-align: center;
   color: #ffffff;
-  right: 50%;
+  margin-bottom: 70px;
+}
+
+.container .input-field {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  width: 236px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  border-radius: 0px;
+  border: none;
+  padding: 0px 5px 0px 5px;
+  box-sizing: border-box;
 }
 
 .button-green {
-  position: absolute;
   display: block;
-  font-size: 12;
-  bottom: 100px;
-  right: 50%;
-  -webkit-transform: translate(50%,0);
-  transform: translate(50%,0);
+  font-size: 14px;
   -webkit-appearance: none;
   background: #3cb84d;
   color: #000000;
-  padding: 10px;
-  height: 30px;
-  line-height: 30px;
+  height: 38px;
+  line-height: 38px;
   width: 236px;
   text-align: center;
   text-decoration: none;
+  margin-top: 50px;
 }
 
 .button-green.Tappable-active {
   background: #3cb84d66;
   color: #00000066;
-  -webkit-transform: translate(50%, 1px);
-  transform: translate(50%, 1px);
+  -webkit-transform: translate(1px, 1px);
+  transform: translate(1px, 1px);
 }

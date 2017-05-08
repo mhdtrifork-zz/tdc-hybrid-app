@@ -33,13 +33,15 @@ const LoginPage = React.createClass({
   render() {
     return (
       <div className="login-page">
-        <h1 className="yousee-header">youSee</h1>
-        <input type="text" value={this.state.value} onChange={this.handleUsernameChange} />
-        <input type="text" value={this.state.value} onChange={this.handlePasswordChange} />
-        <Tappable
-          className='button-green'
-          onTap={ () => this.login()}
-        >Log ind</Tappable>
+        <div className="container">
+          <h1 className="yousee-header">youSee</h1>
+          <input className="input-field" type="text" value={this.state.value} onChange={this.handleUsernameChange} />
+          <input className="input-field" type="password" value={this.state.value} onChange={this.handlePasswordChange} />
+          <Tappable
+            className='button-green'
+            onTap={ () => this.login()}
+            >Log ind</Tappable>
+        </div>
       </div>
     );
   },
