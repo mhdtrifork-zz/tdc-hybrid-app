@@ -1,5 +1,6 @@
 import React from 'react';
 import LoginPage from './LoginPage'
+import Broadband from './Broadband'
 import Spinner from './Spinner';
 
 const Router = React.createClass({
@@ -10,12 +11,12 @@ const Router = React.createClass({
     return {
       spinning: false,
       currentComponent: '',
+      componentProps: null,
     };
   },
   
-  navigateTo(destination) {
-    this.setState({currentComponent: destination})
-    console.log(this.state.currentComponent)
+  navigateTo(destination, props) {
+    this.setState({currentComponent: destination, componentProps: props})
   },
   
   startSpinner(start) {
@@ -32,15 +33,21 @@ const Router = React.createClass({
     }
     switch (this.state.currentComponent) {
         case 'Broadband':
-        console.log('test3')
           return(<div>
+              <Broadband 
+                navigateTo={this.navigateTo} 
+                startSpinner={this.startSpinner} 
+                initialProps={this.state.componentProps}> 
+              </Broadband>
               {spinnerOverlay}
             </div>);
           break
         default:
-          console.log('test4')
           return(<div>
-              <LoginPage navigateTo={this.navigateTo} startSpinner={this.startSpinner}></LoginPage>
+              <LoginPage 
+                navigateTo={this.navigateTo} 
+                startSpinner={this.startSpinner}>
+              </LoginPage>
               {spinnerOverlay}
             </div>);
           break

@@ -17,12 +17,12 @@ const LoginPage = React.createClass({
   parseResponse(responseJson) {
     const token = responseJson.token
     const selfServiceStack = responseJson.selfServiceStack
-    this.props.navigateTo('Broadband')
+    this.props.navigateTo('Broadband', {token:token, selfServiceStack: selfServiceStack})
   },
 
   login() {
     this.props.startSpinner(true)
-     fetch('http://odinapps.master.test.internal.tdc.dk/apps/authenticate', {
+     fetch('https://odinapi.tdc.dk/apps/authenticate', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
