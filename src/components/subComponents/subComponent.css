@@ -19,6 +19,13 @@
   padding-top: 5px;
 }
 
+.header-container {
+  display: flex;
+  display: -webkit-flex;
+  padding: 30px 15px 7px 15px;
+  background: #001d14;
+}
+
 .header {
   margin: 0;
   font-size: 20px;
