@@ -6,14 +6,14 @@
   background: #001d14;
 }
 
-.broadband-subscription-page .spinner-overlay {
+.spinner-overlay {
   align-self: stretch;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #123456;
+  background: #000000;
   opacity: 0.4;
   height: 300px;
 }

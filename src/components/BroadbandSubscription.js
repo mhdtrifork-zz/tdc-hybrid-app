@@ -19,8 +19,6 @@ const BroadbandSubscription = React.createClass({
   },
                                                 
    setupArray(subscription) {
-    console.log('test')
-    console.log(subscription)
     var array = []
     if (subscription.name !== null, subscription.price !== null) {
       array.push(<SubscriptionHeader 
@@ -49,7 +47,6 @@ const BroadbandSubscription = React.createClass({
         array.push(<Separator margin={true}/>)
       })
     }
-     console.log(array)
      return array
   },
   

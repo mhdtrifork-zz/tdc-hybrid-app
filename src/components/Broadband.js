@@ -24,7 +24,6 @@ const Broadband = React.createClass({
         }
       }
     })
-    this.props.startSpinner(false)
   },
 
   getDashboard(selfServiceStack, token) {
@@ -50,7 +49,7 @@ const Broadband = React.createClass({
         this.parseDashboardResponse(responseJson)
       })
       .catch((error) => {
-        this.props.startSpinner(false)
+
         console.error(error)
       });
   },

@@ -19,6 +19,7 @@ const Router = React.createClass({
   
   navigateTo(destination, props) {
     this.setState({currentComponent: destination, componentProps: props})
+    this.startSpinner(false)
   },
   
   startSpinner(start) {
