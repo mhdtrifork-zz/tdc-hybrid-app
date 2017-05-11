@@ -2,16 +2,17 @@
   display: flex;
   display: -webkit-flex;
   padding: 15px;
-  background: #001d14;
 }
 
 .subscription-header-container .vertical-container {
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .subscription-header-container .horizontal-container {
+  flex: 1;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -23,7 +24,20 @@
   display: flex;
   display: -webkit-flex;
   padding: 30px 15px 7px 15px;
-  background: #001d14;
+}
+
+.info-and-price-container {
+  display: flex;
+  display: -webkit-flex;
+  padding: 15px;
+}
+
+.info-and-price-container .horizontal-container {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header {
@@ -37,7 +51,7 @@
 .normal-text {
   margin: 0;
   display: flex;
-  font-size: 13px;
+  font-size: 15px;
   text-align: left;
   color: #ffffff;
 }
@@ -50,11 +64,23 @@
 .large-text {
   margin: 0 0 0 0;
   display: flex;
-  font-size: 20px;
+  font-size: 17px;
   text-align: left;
   color: #ffffff;
 }
 
 .large-text.right {
   text-align: right;
+}
+
+.separator {
+  display: flex;
+  height: 0.5px;
+  background: #ffffff;
+  opacity: 0.1;
+}
+
+.separator.with-padding {
+  margin-left: 15px;
+  margin-right: 15px;
 }

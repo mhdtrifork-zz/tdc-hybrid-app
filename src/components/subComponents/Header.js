@@ -15,7 +15,7 @@ const Header = React.createClass({
   render() {
     return (
     <div className="header-container">
-        <p className='header'>Download/upload hastighed</p>
+        <p className='header'>{this.props.text}</p>
     </div>
     );
   },

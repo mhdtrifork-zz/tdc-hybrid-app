@@ -1,72 +1,19 @@
-.broadband-page {
+.broadband-subscription-page {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: stretch;
   background: #001d14;
 }
 
-.login-page .container {
-  flex: flex-grow;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.container .yousee-header {
-  display: block;
-  font-size: 120;
-  text-align: center;
-  color: #ffffff;
-  margin-bottom: 70px;
-}
-
-.container .input-field {
-  display: block;
-  height: 40px;
-  line-height: 40px;
-  width: 236px;
-  margin-bottom: 10px;
-  font-size: 14px;
-  border-radius: 0px;
-  border: none;
-  padding: 0px 5px 0px 5px;
-  box-sizing: border-box;
-}
-
-.button-green {
-  display: block;
-  font-size: 14px;
-  -webkit-appearance: none;
-  background: #3cb84d;
-  color: #000000;
-  height: 38px;
-  line-height: 38px;
-  width: 236px;
-  text-align: center;
-  text-decoration: none;
-  margin-top: 50px;
-}
-
-.button-green.Tappable-active {
-  background: #3cb84d;
-  color: #000000;
-  -webkit-transform: translate(1px, 1px);
-  transform: translate(1px, 1px);
-  opacity: 0.4;
-}
-
-.login-overlay {
-  position: absolute;
-  top: 0px;
-  left: 0pc;
+.broadband-subscription-page .spinner-overlay {
+  align-self: stretch;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  martin: 20px;
-  height: 100vh;
-  width: 100vw;
-  background: #000000;
+  background: #123456;
   opacity: 0.4;
+  height: 300px;
 }

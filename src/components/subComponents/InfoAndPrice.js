@@ -14,13 +14,10 @@ const InfoAndPrice = React.createClass({
   
   render() {
     return (
-    <div className="subscription-header-container">
-        <div className='vertical-container'>
-          <p className='header'>BlandSelv 25/5 Mbit</p>
-          <div className='horizontal-container'>
-            <p className='large-text'>Pris</p>
-            <p className='large-text right'>219 kr. /md.</p>
-          </div>
+    <div className="info-and-price-container">
+        <div className='horizontal-container'>
+          <p className='normal-text'>{this.props.text}</p>
+          <p className='normal-text right'>{this.props.price}</p>
         </div>
     </div>
     );

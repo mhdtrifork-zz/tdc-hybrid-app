@@ -16,10 +16,10 @@ const SubscriptionHeader = React.createClass({
     return (
     <div className="subscription-header-container">
         <div className='vertical-container'>
-          <p className='header'>BlandSelv 25/5 Mbit</p>
+          <p className='header'>{this.props.header}</p>
           <div className='horizontal-container'>
-            <p className='large-text'>Pris</p>
-            <p className='large-text right'>219 kr. /md.</p>
+            <p className='large-text'>{this.props.text}</p>
+            <p className='large-text right'>{this.props.price}</p>
           </div>
         </div>
     </div>

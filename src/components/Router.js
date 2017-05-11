@@ -3,6 +3,8 @@ import LoginPage from './LoginPage'
 import Broadband from './Broadband'
 import Spinner from './Spinner';
 
+import BroadbandSubscription from './Broadband'
+
 const Router = React.createClass({
 
   displayName: 'Router',
@@ -28,7 +30,7 @@ const Router = React.createClass({
     if (this.state.spinning) {
       spinnerOverlay = 
         <div className="login-overlay">
-          <Spinner className="spinner"/>
+          <Spinner/>
         </div>
     }
     switch (this.state.currentComponent) {

@@ -1,5 +1,10 @@
 import React from 'react';
 import Tappable from 'react-tappable';
+import SubscriptionHeader from './subComponents/SubscriptionHeader'
+import Header from './subComponents/Header'
+import InfoAndPrice from './subComponents/InfoAndPrice'
+import Separator from './subComponents/Separator'
+import Spinner from './Spinner'
 
 import '../css/broadbandSubscription.css'
 
@@ -12,67 +17,40 @@ const BroadbandSubscription = React.createClass({
       subscription: null,
     };
   },
-  
-  /*RenderRow(rowData) {
-    switch(rowData.id) {
-      case 'subscription':
-        return (<SubscriptionCell header={rowData.header} price={rowData.price}/>)
-        break
-      case 'header':
-        return (<HeaderCell header={rowData.header}/>)
-        break
-      case 'namePrice':
-        return (<NamePriceCell text={rowData.text} price={rowData.price}/>)
-        break
-        case 'circle':
-        return (<CircleGraph></CircleGraph>)
-      default:
-        return (
-          <Text>
-            {rowData.id}
-          </Text>
-        )
-        break
-    }
-  },
                                                 
    setupArray(subscription) {
+    console.log('test')
+    console.log(subscription)
     var array = []
     if (subscription.name !== null, subscription.price !== null) {
-      array.push({id: 'subscription', header: subscription.name, price: subscription.price})
+      array.push(<SubscriptionHeader 
+              header={subscription.name} 
+              text='Pris' 
+              price={subscription.price}></SubscriptionHeader>)
+      array.push(<Separator/>)
     }
     
     if (subscription.speed !== null) {
-      array.push({id: 'header', header: subscription.speedHeader})
-      array.push({id: 'namePrice', text: subscription.speed, price: ''})
+      array.push(<Header text='Download/upload hastighed'></Header>)
+      array.push(<Separator margin={true}/>)
+      array.push(<Separator margin={true}/>)
+      array.push(<InfoAndPrice text={subscription.speed} price=''></InfoAndPrice>)
+      array.push(<Separator margin={true}/>)
+      array.push(<Separator margin={true}/>)
     }
     
     if (subscription.addOns !== null) {
       if (subscription.addOns.length > 0) {
-        array.push({id: 'header', header: subscription.addOnHeader})
+        array.push(<Header text='Mine tilvalg'></Header>)
+        array.push(<Separator margin={true}/>)
       }
       subscription.addOns.forEach((addOn) => {
-        array.push({id: 'namePrice', text: addOn.label, price: addOn.price})
+        array.push(<InfoAndPrice text={addOn.label} price={addOn.price}></InfoAndPrice>)
+        array.push(<Separator margin={true}/>)
       })
     }
-    
-    if (subscription.totalPrice !== null) {
-      array.push({id: 'header', header: subscription.totalPriceHeader})
-      array.push({id: 'namePrice', text: subscription.totalPriceLabel, 
-                price: subscription.totalPrice})
-    }
-    
-    array.push({id:'circle', percent:100})
-    console.log("test"+array)
-    this.setState({
-      rows: array,
-      dataSource: ds.cloneWithRows(array),
-    })
-  },*/
-  
-  parseBroadbandResponse(responseJson) {
-    console.log(responseJson)
-    this.setState({subscription: responseJson})
+     console.log(array)
+     return array
   },
   
   getBroadbandSubscribtionWith(id, selfServiceStack, token) {
@@ -95,7 +73,7 @@ const BroadbandSubscription = React.createClass({
      })
       .then((response) => response.json())
       .then((responseJson) => {
-        this.parseBroadbandResponse(responseJson)
+        this.setState({subscription: responseJson})
       })
       .catch((error) => {
         console.error(error)
@@ -116,11 +94,20 @@ const BroadbandSubscription = React.createClass({
                                         this.props.selfServiceStack, 
                                         this.props.token)
     }
+    
+    if (this.state.subscription === null) {
       return (
-      <div className="broadband-page">
-          <h1>test</h1>
-      </div>
-    );
+        <div className="spinner-overlay">
+          <Spinner/>
+        </div>
+      );
+    } else {
+      return (
+        <div className="broadband-subscription-page">
+            {this.setupArray(this.state.subscription)}
+        </div>
+      );
+    } 
   },
 });
 

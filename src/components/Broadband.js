@@ -1,5 +1,4 @@
 import React from 'react';
-import Tappable from 'react-tappable';
 import BroadbandSubscription from './BroadbandSubscription'
 
 import '../css/broadband.css'
@@ -59,10 +58,13 @@ const Broadband = React.createClass({
   render() {
     if (this.state.subscriptionId ===null) {
       this.getDashboard(this.props.initialProps.selfServiceStack, 
-                      this.props.initialProps.token)
+                     this.props.initialProps.token)
     }
       return (
       <div className="broadband-page">
+          <div className='broadband-header-container'>
+            <p className='broadband-header'>Mit Bredbånd</p>
+          </div>
           <BroadbandSubscription 
             id={this.state.subscriptionId} 
             selfServiceStack={this.props.initialProps.selfServiceStack}
