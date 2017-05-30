@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   background: #001d14;
 }
@@ -24,4 +24,35 @@
   font-size: 20px;
   text-align: center;
   color: #ffffff;
+}
+
+.broadband-page .button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  height: 38px;
+  width: 100vw;
+  background: #042617;
+}
+
+.broadband-page .button-green {
+  display: block;
+  font-size: 13px;
+  -webkit-appearance: none;
+  background: #042617;
+  color: #3cb84d;
+  height: 38px;
+  line-height: 38px;
+  width: 120px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.broadband-page .button-green.Tappable-active {
+  background: #042617;
+  color: #3cb84d;
+  -webkit-transform: translate(1px, 1px);
+  transform: translate(1px, 1px);
+  opacity: 0.4;
 }

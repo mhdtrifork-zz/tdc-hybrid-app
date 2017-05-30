@@ -90,6 +90,8 @@ const Broadband = React.createClass({
       <div className="broadband-page">
           <div className='broadband-header-container'>
             <p className='broadband-header'>Mit Bredbånd</p>
+          </div>
+          <div className='button-container'>
             <Tappable
             className='button-green'
             onTap={ () => this.toggleSubscription()}
