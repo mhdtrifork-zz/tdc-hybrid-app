@@ -1,5 +1,6 @@
 import React from 'react';
 import BroadbandSubscription from './BroadbandSubscription'
+import BroadbandSettings from './BroadbandSettings'
 
 import '../css/broadband.css'
 
@@ -69,6 +70,11 @@ const Broadband = React.createClass({
             selfServiceStack={this.props.initialProps.selfServiceStack}
             token={this.props.initialProps.token}>
           </BroadbandSubscription>
+          <BroadbandSettings
+            id={this.state.subscriptionId} 
+            selfServiceStack={this.props.initialProps.selfServiceStack}
+            token={this.props.initialProps.token}>
+          </BroadbandSettings>
       </div>
     );
   },
