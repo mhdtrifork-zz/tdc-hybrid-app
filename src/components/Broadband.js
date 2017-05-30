@@ -1,4 +1,5 @@
 import React from 'react';
+import Tappable from 'react-tappable';
 import BroadbandSubscription from './BroadbandSubscription'
 import BroadbandSettings from './BroadbandSettings'
 
@@ -10,7 +11,8 @@ const Broadband = React.createClass({
 
   getInitialState() {
     return {
-      subscriptionId: null
+      subscriptionId: null,
+      showSubscription: true
     };
   },
   
@@ -55,6 +57,30 @@ const Broadband = React.createClass({
       });
   },
   
+  getActiveWindow() {
+    if (this.state.showSubscription) {
+      return (<BroadbandSubscription 
+            id={this.state.subscriptionId} 
+            selfServiceStack={this.props.initialProps.selfServiceStack}
+            token={this.props.initialProps.token}>
+          </BroadbandSubscription>)
+    } else {
+      return (<BroadbandSettings
+            id={this.state.subscriptionId} 
+            selfServiceStack={this.props.initialProps.selfServiceStack}
+            token={this.props.initialProps.token}>
+          </BroadbandSettings>)
+    }
+  },
+  
+  toggleSubscription() {
+    this.setState({showSubscription: true})
+  },
+  
+  toggleSettings() {
+    this.setState({showSubscription: false})
+  },
+  
   render() {
     if (this.state.subscriptionId ===null) {
       this.getDashboard(this.props.initialProps.selfServiceStack, 
@@ -64,17 +90,16 @@ const Broadband = React.createClass({
       <div className="broadband-page">
           <div className='broadband-header-container'>
             <p className='broadband-header'>Mit Bredbånd</p>
+            <Tappable
+            className='button-green'
+            onTap={ () => this.toggleSubscription()}
+            >Abonnement</Tappable>
+            <Tappable
+            className='button-green'
+            onTap={ () => this.toggleSettings()}
+            >Indstillinger</Tappable>
           </div>
-          <BroadbandSubscription 
-            id={this.state.subscriptionId} 
-            selfServiceStack={this.props.initialProps.selfServiceStack}
-            token={this.props.initialProps.token}>
-          </BroadbandSubscription>
-          <BroadbandSettings
-            id={this.state.subscriptionId} 
-            selfServiceStack={this.props.initialProps.selfServiceStack}
-            token={this.props.initialProps.token}>
-          </BroadbandSettings>
+          {this.getActiveWindow()}
       </div>
     );
   },
